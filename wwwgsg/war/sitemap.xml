@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.gensetgo.com/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/trackOrder.jsp</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?command=productlist&amp;category=MidSize</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?command=productlist&amp;category=Industrial</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?command=productlist&amp;category=Portable</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__filter__fuel=Diesel&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__filter__fuel=Kerosene&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__filter__fuel=LPG&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__filter__silent_open=Silent&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__sort__listing=+__number__price&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__filter__special_feature=Welding%20Genset&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?__sort__listing=-__number__rating&amp;command=productlist&amp;category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?category=Portable%20Generator</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=CC%203.5%20AS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=CC%205AS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EB%20650GP</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EBK%201000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EBK%20650</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EK%20400</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EM%20650</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EP%201000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%201200</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%201200S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%202000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%202000AC</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%202000S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%202800</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=EXK%202800S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%201000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%201400%20L</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%201400%20P</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%202000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%202000%20L</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%202800%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%202800%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203000%20D</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203000%20K%20SILENT</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203000%20KS%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203500</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203500%20DS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203500%20DS%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%203500%20S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%204000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%204000%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%205000%20DS%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%205000%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%205000PS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%206500%20D%20Half%20Canopy</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%206500%20D%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%206500%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%206500%20KS%20SIlent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%207000%20D</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%207000S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%207500%20D%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%207500%20R</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%207500%20R%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%20W%205500</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%20W%208000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=GE%20W%208000%20D</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?category=MidSize</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/details.jsp?id=Canon%207.5%20SP%20SC</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?category=Industrial</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/listing.jsp?category=Portable</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=CC%203.5%20AS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=CC%205AS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EB%20650GP</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EBK%201000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EBK%20650</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EK%20400</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EM%20650</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EP%201000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%201200</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%201200S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%202000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%202000AC</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%202000S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%202800</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=EXK%202800S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%201000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%201400%20L</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%201400%20P</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%202000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%202000%20L</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%202800%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%202800%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203000%20D</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203000%20K%20SILENT</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203000%20KS%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203500</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203500%20DS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203500%20DS%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%203500%20S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%204000%20K</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%204000%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%205000%20DS%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%205000%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%205000PS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%206500%20D%20Half%20Canopy</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%206500%20D%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%206500%20KS</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%206500%20KS%20SIlent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%207000%20D</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%207000S</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%207500%20D%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%207500%20R</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%207500%20R%20Silent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%20W%205500</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%20W%208000</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=GE%20W%208000%20D</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.gensetgo.com/order.jsp?id=Canon%207.5%20SP%20SC</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+</urlset>

@@ -6,47 +6,57 @@
 <%@ page import="com.gsg.service.Products"%>
 
 <%
-	BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+	BlobstoreService blobstoreService = BlobstoreServiceFactory
+			.getBlobstoreService();
 	String productid = request.getParameter("id");
-	Entity category=Products.getProductCategory(productid);
-	Entity product = Products.getProductProperties( productid);
+	Entity category = Products.getProductCategory(productid);
+	Entity product = Products.getProductProperties(productid);
 
-	String maxPower=""+product.getProperty("__text__maxPower");
-	String maxPowerCat=""+category.getProperty("__text__maxPower");
+	String maxPower = "" + product.getProperty("__text__maxPower");
+	String maxPowerCat = "" + category.getProperty("__text__maxPower");
 
-	String ratedPower=""+product.getProperty("__text__rating");
-	String ratedPowerCat=""+category.getProperty("__text__rating");
+	String ratedPower = "" + product.getProperty("__text__rating");
+	String ratedPowerCat = "" + category.getProperty("__text__rating");
 
-	String acVoltage=""+product.getProperty("__text__acVoltage");
-	String acVoltageCat=""+category.getProperty("__text__acVoltage");
+	String acVoltage = "" + product.getProperty("__text__acVoltage");
+	String acVoltageCat = ""
+			+ category.getProperty("__text__acVoltage");
 
-	String alternatorType=""+product.getProperty("__text__alternatorType");
-	String alternatorTypeCat=""+category.getProperty("__text__alternatorType");
+	String alternatorType = ""
+			+ product.getProperty("__text__alternatorType");
+	String alternatorTypeCat = ""
+			+ category.getProperty("__text__alternatorType");
 
-	String engineType=""+product.getProperty("__text__engineType");
-	String engineTypeCat=""+category.getProperty("__text__engineType");
+	String engineType = "" + product.getProperty("__text__engineType");
+	String engineTypeCat = ""
+			+ category.getProperty("__text__engineType");
 
-	String startingSystem=""+product.getProperty("__text__startingSystem");
-	String startingSystemCat=""+category.getProperty("__text__startingSystem");
+	String startingSystem = ""
+			+ product.getProperty("__text__startingSystem");
+	String startingSystemCat = ""
+			+ category.getProperty("__text__startingSystem");
 
-	String fuel=""+product.getProperty("__text__fuel");
-	String fuelCat=""+category.getProperty("__text__fuel");
+	String fuel = "" + product.getProperty("__text__fuel");
+	String fuelCat = "" + category.getProperty("__text__fuel");
 
-	String applications=""+product.getProperty("__text__application");
-	String applicationsCat=""+category.getProperty("__text__application");
+	String applications = ""
+			+ product.getProperty("__text__application");
+	String applicationsCat = ""
+			+ category.getProperty("__text__application");
 
-	String highlight1=""+product.getProperty("__text__highlight1");
-	String highlight1Cat=""+category.getProperty("__text__highlight1");
+	String highlight1 = "" + product.getProperty("__text__highlight1");
+	String highlight1Cat = ""
+			+ category.getProperty("__text__highlight1");
 
-	String highlight2=""+product.getProperty("__text__highlight2");
-	String highlight2Cat=""+category.getProperty("__text__highlight2");
+	String highlight2 = "" + product.getProperty("__text__highlight2");
+	String highlight2Cat = ""
+			+ category.getProperty("__text__highlight2");
 
-	String highlight3=""+product.getProperty("__text__highlight3");
-	String highlight3Cat=""+category.getProperty("__text__highlight3");
+	String highlight3 = "" + product.getProperty("__text__highlight3");
+	String highlight3Cat = ""
+			+ category.getProperty("__text__highlight3");
 
-	String analysis=""+product.getProperty("__text__analysis");
-
-
+	String analysis = "" + product.getProperty("__text__analysis");
 %>
 
 
@@ -73,12 +83,13 @@
 <script>
 	WebFont.load({
 		google : {
-			families : [ "Montserrat:400,700", "Lato:100,300,400,700,900", "Bitter:400,700", "Open Sans:300,400,600,700,800", "Rock Salt:regular",
-					"Fauna One:regular" ]
+			families : [ "Montserrat:400,700", "Lato:100,300,400,700,900",
+					"Bitter:400,700", "Open Sans:300,400,600,700,800",
+					"Rock Salt:regular", "Fauna One:regular" ]
 		}
 	});
 </script>
-<script language="javascript" src='script/ajax.util.js'></script>
+<script language="javascript" src='script/ajax.utils.js'></script>
 
 <script>
 	if (/mobile/i.test(navigator.userAgent))
@@ -98,7 +109,8 @@
 		a.async = 1;
 		a.src = g;
 		m.parentNode.insertBefore(a, m)
-	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
 
 	ga('create', 'UA-49901239-1', 'gensetgo.com');
 	ga('send', 'pageview');
@@ -121,9 +133,13 @@
 
 							</div>
 							<div class="w-col w-col-4 details-p1box">
-								<h6><a href="listing.jsp?category=<%=product.getProperty("product_category")%>">
-									<%=product.getProperty("product_category")%></a> > <a href="details.jsp?id=<%=productid%>"><%=product.getProperty("__text__brand")%>
-									<%=product.getProperty("__text__model")%></a></h6>
+								<h6>
+									<a
+										href="listing.jsp?category=<%=product.getProperty("product_category")%>">
+										<%=product.getProperty("product_category")%></a> > <a
+										href="details.jsp?id=<%=productid%>"><%=product.getProperty("__text__brand")%>
+										<%=product.getProperty("__text__model")%></a>
+								</h6>
 								<div class="details-item-title"><%=product.getProperty("__text__brand")%>
 									<%=product.getProperty("__text__model")%></div>
 								<br />
@@ -131,32 +147,45 @@
 
 								<div class="details-item-summary"><%=product.getProperty("__text__details_summary")%></div>
 								<div class="separator"></div>
-								<br /> <br />
-								<div class="button">
+								<br />
+								<div class="details-item-price">
 									Rs
-									<%=(""+product.getProperty("__number__price")).replace("null","") %>
-									>> ORDER
+									<%=("" + product.getProperty("__number__price")).replace(
+					"null", "")%>
 								</div>
-								<br /> <br />
-								<%  for(int i=1; i<10; i++){
-									String commercialTerm=""+product.getProperty("__text__commercialTerm"+i);
-									if(!commercialTerm.equalsIgnoreCase("null")){%>
+								<a href="order.jsp?id=<%=productid%>">
+									<div class="button">ORDER >></div>
+								</a> <br /> <br /> <br />
+								<%
+									for (int i = 1; i < 10; i++) {
+										String commercialTerm = ""
+												+ product.getProperty("__text__commercialTerm" + i);
+										if (!commercialTerm.equalsIgnoreCase("null")) {
+								%>
 								<div class="w-list-unstyled"><%=commercialTerm%></div>
-								<%}
-							          }%>
+								<%
+									}
+									}
+								%>
 
 							</div>
 							<div class="w-col w-col-4 details-p1box-features">
 
-								<%  for(int i=1; i<10; i++){
-									String feature=""+product.getProperty("__text__details_feature"+i);
-									if(!(feature.equalsIgnoreCase("null"))&&(!feature.equalsIgnoreCase(""))){%>
+								<%
+									for (int i = 1; i < 10; i++) {
+										String feature = ""
+												+ product.getProperty("__text__details_feature" + i);
+										if (!(feature.equalsIgnoreCase("null"))
+												&& (!feature.equalsIgnoreCase(""))) {
+								%>
 								<div class="item-details-features">
 									<img src="/images/screw.jpg" width="20px" height="20px" />
 									<%=feature%>
 								</div>
-								<%}
-							          }%>
+								<%
+									}
+									}
+								%>
 							</div>
 						</div>
 					</div>
@@ -167,68 +196,104 @@
 									<div class="header-band-gray-small">Product
 										Specifications</div>
 									<table class="specs-table">
-										<% if(!maxPower.equalsIgnoreCase("null")){%>
+										<%
+											if (!maxPower.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=maxPowerCat%></td>
 											<td class="specs-value"><%=maxPower%> VA</td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!ratedPower.equalsIgnoreCase("null")){%>
+										<%
+											if (!ratedPower.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=ratedPowerCat%></td>
 											<td class="specs-value"><%=ratedPower%> VA</td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!acVoltage.equalsIgnoreCase("null")){%>
+										<%
+											if (!acVoltage.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=acVoltageCat%></td>
 											<td class="specs-value"><%=acVoltage%> Volt</td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!alternatorType.equalsIgnoreCase("null")){%>
+										<%
+											if (!alternatorType.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=alternatorTypeCat%></td>
 											<td class="specs-value"><%=alternatorType%></td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!engineType.equalsIgnoreCase("null")){%>
+										<%
+											if (!engineType.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=engineTypeCat%></td>
 											<td class="specs-value"><%=engineType%></td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!startingSystem.equalsIgnoreCase("null")){%>
+										<%
+											if (!startingSystem.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=startingSystemCat%></td>
 											<td class="specs-value"><%=startingSystem%></td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!fuel.equalsIgnoreCase("null")){%>
+										<%
+											if (!fuel.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=fuelCat%></td>
 											<td class="specs-value"><%=fuel%></td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!applications.equalsIgnoreCase("null")){%>
+										<%
+											if (!applications.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=applicationsCat%></td>
 											<td class="specs-value"><%=applications%></td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
-										<% if(!highlight1.equalsIgnoreCase("null")){%>
+										<%
+											if (!highlight1.equalsIgnoreCase("null")) {
+										%>
 										<tr>
 											<td class="specs-key"><%=highlight1Cat%></td>
 											<td class="specs-value"><%=highlight1%></td>
 										</tr>
-										<%}%>
+										<%
+											}
+										%>
 
 									</table>
 									<br /> <br />
@@ -241,9 +306,13 @@
 								<div class="summ">
 									<div class="header-band-gray-small">GensetGo's Analysis</div>
 									<br />
-									<% if(!analysis.equalsIgnoreCase("null")){%>
+									<%
+										if (!analysis.equalsIgnoreCase("null")) {
+									%>
 									<%=analysis%>
-									<%}%>
+									<%
+										}
+									%>
 
 								</div>
 							</div>
@@ -259,8 +328,8 @@
 	<div>
 		<div class="w-row">
 			<div class="w-col w-col-6 w-clearfix">
-				<div class="footer-text">Copyright © 2014 GensetGo. All
-					rights reserved.</div>
+				<div class="footer-text">Copyright © 2014 GensetGo. All rights
+					reserved.</div>
 			</div>
 			<div class="w-col w-col-6 w-clearfix">
 				<div class="footer-text footer-text1">GensetGo News | Site Map

@@ -193,7 +193,6 @@ public class Products extends BaseService {
 		Iterable<Entity> products= Util.filterResult("Product_Item", searchANDFilter, sortPars);
 		//populateDetailsURL( products);
 		return products;
-
 	}
 
 	public static void populateThumbnailURL(Iterable<Entity> products) {

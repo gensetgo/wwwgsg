@@ -378,7 +378,7 @@ public class Util {
 			// System.out.println(pairs.getKey() + " = " + pairs.getValue());
 			query.addFilter(pairs.getKey() + "", FilterOperator.EQUAL,
 					(String) pairs.getValue() + "");
-			it.remove(); // avoids a ConcurrentModificationException
+			//it.remove(); // avoids a ConcurrentModificationException
 		}
 		PreparedQuery pq = datastore.prepare(query);
 		// FetchOptions fetchOptions = FetchOptions.Builder.withLimit(15);

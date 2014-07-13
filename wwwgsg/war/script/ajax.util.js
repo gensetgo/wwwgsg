@@ -14,53 +14,159 @@ var ENTITY_ANNUAL_RETURNS = 'annual-returns'
 
 // function to initialize the page
 var init = function(entity) {
-
 	$('#__sort__listing').change(function() {
 		// showListMenu();
 		showlist($("#category").val());
 	});
-
-//	loadHome();
-	$("#payments-create-form").validate({
-		rules : {
-			payments_amount : {
-				customvalidation : true
-			},
-			payments_item_total : {
-				number : true
+	$('#utr,#label_utr').hide();
+	$('#copyadd').change(function() {
+		if ($("#copyadd").is(':checked')) {
+			var formEleList = $('input[name*=_bill]').serializeArray();
+			for (var i = 0; i < formEleList.length; i++) {
+				var newFiled = formEleList[i].name.replace('_bill', '');
+				var vl = $('#' + newFiled).val();
+				$('#' + formEleList[i].name).val(vl);
 			}
 		}
 	});
 
-	$.validator.addMethod("customvalidation", function(value, element) {
-		// $(element).error;
-		return /^[0]+$/.test(value);
-	}, "Should be Zero");
+	// loadHome();
+	$('#cust_name,#pincode, #address,#landmark,#city,#state').change(
+			function() {
+				if ($("#copyadd").is(':checked')) {
+					var newFiled = $(this).attr('name') + '_bill';
+					var vl = $(this).val();
+					$('#' + newFiled).val(vl);
+				}
+			});
+	$('#item_quantity').change(function() {
+		var item_price = parseInt($('#item_price').val());
+		var item_quantity = parseInt($(this).val());
+		var item_line_tot = item_price * item_quantity;
+		var item_vat = item_line_tot * .135;
+		var item_grand_tot = item_line_tot + item_vat;
+
+		$('#item_sub_tot').val(item_line_tot.toFixed(2));
+		$('#item_line_tot').val(item_line_tot.toFixed(2));
+		$('#item_vat').val(item_vat.toFixed(2));
+		$('#item_grand_tot').val(item_grand_tot.toFixed(2));
+
+		$('#label_item_sub_tot').html(item_line_tot.toFixed(2));
+		$('#label_item_line_tot').html(item_line_tot.toFixed(2));
+		$('#label_item_vat').html(item_vat.toFixed(2));
+		$('#label_item_grand_tot').html(item_grand_tot.toFixed(2));
+
+	});
+	$('#pay_method')
+			.change(
+					function() {
+						var tipe = $(this).val();
+						if (tipe == 'Draft On Delivery') {
+							$('#scan,#label_scan,#pay_method_msg').show();
+							$('#utr,#label_utr,#pay_method_msgu').hide();
+							$('#pay_method_msg')
+									.html(
+											'DD in favor of VIKRAMSHILA AGENCY payable at BHAGALPUR. Once consignment arrives, please handover the draft to delivery person. At the time of order, please upload scanned copy of draft');
+						}
+						if (tipe == 'Account Deposit') {
+							$('#scan,#label_scan,#pay_method_msg').show();
+							$('#utr,#label_utr,#pay_method_msgu').hide();
+							$('#pay_method_msg')
+									.html(
+											'Deposit to A/C number:  A/C Name: VIKRAMSHILA AGENCY Bank: VIJAYA BANK  Branch: BHAGALPUR.');
+
+						}
+						if (tipe == 'NEFT') {
+							$('#pay_method_msgu')
+									.html(
+											'RTGS/NEFT to A/C number 0023490234, IFS Code: VIJA, A/C name: Vikramshila Agency');
+							$('#utr,#label_utr,#pay_method_msgu').show();
+							$('#scan,#label_scan,#pay_method_msg').hide();
+						}
+
+					});
+
+	jQuery.validator.setDefaults({
+		  debug: true,
+		  success: "valid"
+		});
+	
+	$('#order-form').validate({
+		onkeyup: true,
+		rules : {
+			email : {
+				required : true,
+				email : true
+			},
+			email_match : {
+				equalTo : '#email'
+			},
+			phone : {
+				required : true,
+				digits : true
+			},
+			cust_name : {
+				required : true
+			},
+			pincode : {
+				required : true,
+				digits : true,
+				minlength : 6
+			},
+			address : {
+				required : true
+			},
+			city : {
+				required : true
+			},
+			cust_name_bill : {
+				required : true
+			},
+			pincode_bill : {
+				required : true,
+				digits : true,
+				minlength : 6
+			},
+			address_bill : {
+				required : true
+			},
+			city_bill : {
+				required : true
+			},
+			pay_method : {
+				URNCheck : true
+			}
+		}
+	});
+
+	$.validator
+			.addMethod(
+					"URNCheck",
+					function(value, element) {
+						var response = true;
+						if ($('#pay_method').val() == 'NEFT') {
+							if ($('#utr').val() == '') {
+								response = false;
+							}
+						}
+						if (($('#pay_method').val() == 'Draft On Delivery')
+								|| ($('#pay_method').val() == 'Account Deposit')) {
+							if ($('#scan').val() == '') {
+								response = false;
+							}
+						}
+						alert(response);
+						return response;
+					},
+					"Please enter Unique Reference Number (UTR) of the NEFT/RTGS transfer Or scanned copy of DD / transfer reciept");
 
 	$("#home").click(function() {
 		loadHome();
 	})
-	$(function() {
-		$(".column").sortable({
-			connectWith : ".column"
-		});
-		$(".portlet").addClass(
-				"ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
-				.find(".portlet-header").addClass(
-						"ui-widget-header ui-corner-all").prepend(
-						"<span class='ui-icon ui-icon-minusthick'></span>")
-				.end().find(".portlet-content");
-		$(".portlet-header .ui-icon").click(
-				function() {
-					$(this).toggleClass("ui-icon-minusthick").toggleClass(
-							"ui-icon-plusthick");
-					$(this).parents(".portlet:first").find(".portlet-content")
-							.toggle();
-				});
-	});
 
 	$(this).ajaxStart(function() {
-	//	$('#tbl_products_item').html(' <div id="ajax_loader"><img src="images/ajax-loader.gif">	</div>');
+		// $('#tbl_products_item').html(' <div id="ajax_loader"><img
+		// src="images/ajax-loader.gif"> </div>');
 	});
 
 	$(this).ajaxStop(function() {
@@ -219,18 +325,6 @@ var init = function(entity) {
 	addNeededAutoComplete($('#oppor_cust_name'), 'oppor');
 	addNeededAutoComplete($('#billing_cust_name'), 'oppor');
 
-	$(
-			"#pay_date, #oppor_date, #work_deadline, #work_start_date, #sale_date,#returns_date,	#recieve_date,#expense_date, #dateOfOrder, #expectedDateOfDelivery, #actualDespatchDate, #arrivalDate, #billing_date,#payments_date")
-			.datepicker({
-				dateFormat : 'yy-mm-dd'
-			});
-
-	$(
-			"#billingTable,#expenseTable,#accountTable,#paymentsTable,#stockTable,#plTable,#brandTable,#orderTable")
-			.tablesorter({
-				sortList : [ [ 0, 1 ] ]
-			});
-
 	// type --> what type of upload this is ..suvidha, logo, template
 	// valueElement --> primary key for this element
 	$("#Upload").click(
@@ -287,58 +381,6 @@ var init = function(entity) {
 						}).width(300 - 25);
 			});
 
-	$("#stockInstantSearch").autocomplete(
-			{
-				width : 1900,
-				height : 10,
-				delay : 250,
-				minLength : 1,
-				autoFocus : true,
-				cacheLength : 1,
-				scroll : true,
-				highlight : true,
-				focus : function(event, ui) {
-					// cal.css({left: left + 'px', top: top + 'px'});
-					wid = parseInt($('#stock-create-ctr').outerWidth());
-
-					$('#stock-create-ctr').css({
-						position : 'absolute',
-						left : wid - 150,
-						top : 80
-					}).animate({
-						top : 80,
-						left : wid - 150
-					});
-					$('#stock-create-ctr').show();
-					regenerateSearchedStockDetails(ui.item.value);
-				},
-				select : function(event, ui) {
-					$('#stock-create-ctr').animate({
-						top : 80,
-						left : 0
-					});
-
-					$("#stock-search-ctr").show();
-					edit('stock', $('#stock-create-form').find(
-							'input[name=stock_code]').val());
-				},
-				source : function(request, response) {
-					$.ajax({
-						url : "stock?command=suggest",
-						dataType : "json",
-						data : request,
-						success : function(data, textStatus, jqXHR) {
-							var items = data;
-							response(items);
-						},
-						error : function(jqXHR, textStatus, errorThrown) {
-						}
-					});
-				}
-
-			});
-	// showing the home tab on initializing
-	showTab(HOME);
 	// adding event listeners to the tabs
 	$('#tabs a').click(function(event) {
 		showTab(event.currentTarget.id);
@@ -540,8 +582,11 @@ var init = function(entity) {
 
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var showlist = function(category) {
-	$("html, body").animate({ scrollTop: 0 }, "slow");
-	$('#listing-items').html(' <div id="ajax_loader"><img src="images/ajax-loader.gif">	</div>');
+	$("html, body").animate({
+		scrollTop : 0
+	}, "slow");
+	$('#listing-items').html(
+			' <div id="ajax_loader"><img src="images/ajax-loader.gif">	</div>');
 	var successFn = function(resp) {
 		var col = 4;
 		var currow = 1;
@@ -573,7 +618,8 @@ var showlist = function(category) {
 			htm = htm
 					+ '<div class="w-col w-col-3 listing-p1box">			<div class="summ">				<a class="greylink"					href="details.jsp?id='
 					+ nme
-					+ '"><img	height="150" width="150" src="'					+ imageURL
+					+ '"><img	height="150" width="150" src="'
+					+ imageURL
 					+ '"					alt="52ee9da9db9a854a4e0004b9_call.png"> <br />					<div class="listing-item-title">'
 					+ brand
 					+ '  &nbsp;'
@@ -618,8 +664,8 @@ var showlist = function(category) {
 		$('#listing-items').remove('#ajax_loader');
 
 	};
-	getData('/products?command=productlist&category='+category, '', successFn,
-			errorFn);
+	getData('/products?command=productlist&category=' + category, '',
+			successFn, errorFn);
 }
 
 var showListMenu = function() {
@@ -650,8 +696,9 @@ var showListMenu = function() {
 								htm += '<li><a> <input type="checkbox" value="'
 										+ options[option]
 										+ '" name="__filter__' + key
-										+ '"  onclick="showlist('+category+')"> <span>'
-										+ options[option] + '</a></li>';
+										+ '"  onclick="showlist(' + category
+										+ ')"> <span>' + options[option]
+										+ '</a></li>';
 								printed = printed + '|' + dressedOption;
 							}
 						}
@@ -663,10 +710,10 @@ var showListMenu = function() {
 		$('#listing-menu').html(htm);
 	};
 	var errorFn = function(resp) {
-		//alert('error');
+		// alert('error');
 	};
-	getData('/products?command=menulist&category=Portable Generator', '', successFn,
-			errorFn);
+	getData('/products?command=menulist&category=Portable Generator', '',
+			successFn, errorFn);
 }
 
 var getData = function(url, filterData, successFn, errorFn) {
@@ -2055,37 +2102,6 @@ autoCompMap['oppor_item_des'] = [ "pl" ];
 autoCompMap['billing_item_des'] = [ "stock" ];
 
 var addNeededAutoCompleteG = function(element) {
-	var elementId = $(element).attr('id');
-	var entt = autoCompMap[elementId];
-	if (entt instanceof Object) {
-		$(element).autocomplete({
-			width : 300,
-			max : 10,
-			delay : 250,
-			minLength : 1,
-			autoFocus : true,
-			cacheLength : 1,
-			scroll : true,
-			highlight : false,
-			select : function(event, ui) {
-				breakNDist(event, ui, $(this));
-			},
-			source : function(request, response) {
-				$.ajax({
-					url : entt + "?command=suggest",
-					dataType : "json",
-					data : request,
-					success : function(data, textStatus, jqXHR) {
-						var items = data;
-						response(items);
-					},
-					error : function(jqXHR, textStatus, errorThrown) {
-						console.log(textStatus, errorThrown);
-					}
-				});
-			}
-		});
-	}
 }
 
 /*
@@ -2094,109 +2110,7 @@ var addNeededAutoCompleteG = function(element) {
  */
 
 var addNeededAutoComplete = function(element, entity) {
-	$(element)
-			.autocomplete(
-					{
-						width : 300,
-						max : 10,
-						delay : 250,
-						minLength : 1,
-						autoFocus : true,
-						cacheLength : 1,
-						scroll : true,
-						highlight : false,
-						select : function(event, ui) {
-							var elementId = $(this).attr('id');
-							var substr = ui.item.value.split("|");
-							var counter = "";
-							if (elementId.indexOf('pur_des') >= 0) {
-								counter = elementId.substr(
-										elementId.length - 1, 1);
-								if (isNaN(parseInt(counter))) {
-									counter = "";
-								}
-								$("input[name=pur_cnf" + counter + "]").val(
-										substr[1]);
-								$("input[name=pur_et" + counter + "]").val(
-										substr[2]);
-								$("input[name=pur_tax_appl" + counter + "]")
-										.val(substr[3]);
-								event.preventDefault();
-								$("input[name=pur_des" + counter + "]").val(
-										substr[0]);
-							} else if ((elementId.indexOf('oppor_cust_name') >= 0)
-									|| (elementId.indexOf('oppor_cust_add') >= 0)
-									|| (elementId.indexOf('oppor_cust_phone') >= 0)
-									|| (elementId.indexOf('oppor_cust_email') >= 0)) {
-								event.preventDefault();
-								$("#oppor_cust_id").val(substr[0]);
-								$("#oppor_cust_name").val(substr[1]);
-								$("#oppor_cust_add").val(substr[2]);
-								$("#oppor_cust_phone").val(substr[3]);
-								$("#oppor_cust_email").val(substr[4]);
-								autoSaveGroup(
-										'oppor_cust_id,oppor_cust_name,oppor_cust_add,oppor_cust_phone,oppor_cust_email',
-										'oppor', 'oppor_code');
-							} else if ((elementId.indexOf('billing_cust_name') >= 0)
-									|| (elementId.indexOf('billing_cust_add') >= 0)
-									|| (elementId.indexOf('billing_cust_phone') >= 0)
-									|| (elementId.indexOf('billing_cust_email') >= 0)) {
-								event.preventDefault();
-								$("#billing_cust_id").val(substr[0]);
-								$("#billing_cust_name").val(substr[1]);
-								$("#billing_cust_add").val(substr[2]);
-								$("#billing_cust_phone").val(substr[3]);
-								$("#billing_cust_email").val(substr[4]);
-								autoSaveGroup(
-										'billing_cust_id,billing_cust_name,billing_cust_add,billing_cust_phone,billing_cust_email',
-										'billing', 'billing_code');
-							} else if ((elementId.indexOf('oppor_item_code') >= 0)
-									|| (elementId.indexOf('oppor_item_des') >= 0)
-									|| (elementId.indexOf('oppor_item_rate') >= 0)
-									|| (elementId.indexOf('oppor_item_unit') >= 0)
-									|| (elementId
-											.indexOf('oppor_item_net_price') >= 0)) {
-								event.preventDefault();
-								counter = elementId.substr(
-										elementId.length - 1, 1);
-								if (isNaN(parseInt(counter))) {
-									counter = "";
-								}
-								$("input[name=oppor_item_rate" + counter + "]")
-										.val(substr[5]);
-								$("input[name=oppor_item_unit" + counter + "]")
-										.val('1');
-								$(
-										"input[name=oppor_item_net_price"
-												+ counter + "]").val(substr[5]);
-								event.preventDefault();
-								$("input[name=oppor_item_des" + counter + "]")
-										.val(
-												substr[0] + " : " + substr[1]
-														+ " : " + substr[2]
-														+ " : " + substr[3]
-														+ " : " + substr[4]);
-								// autoSaveGroup('oppor_cust_id,oppor_cust_name,oppor_cust_add,oppor_cust_phone,oppor_cust_email',
-								// 'oppor','oppor_code');
-							}
-						},
-						source : function(request, response) {
-							$
-									.ajax({
-										url : entity + "?command=suggest",
-										dataType : "json",
-										data : request,
-										success : function(data, textStatus,
-												jqXHR) {
-											var items = data;
-											response(items);
-										},
-										error : function(jqXHR, textStatus,
-												errorThrown) {
-										}
-									});
-						}
-					});
+
 }
 
 // function to show the tab
@@ -3481,9 +3395,11 @@ var dupWithIdM = (function(data, table, displayItem) {
 															// code away
 														}
 														var htm = '<input class="gsc-input-autocomplete" id="'
-																+ name + '"'
+																+ name
+																+ '"'
 																+ ' name="'
-																+ name + i
+																+ name
+																+ i
 																+ '"'
 																+ ' value="'
 																+ vl

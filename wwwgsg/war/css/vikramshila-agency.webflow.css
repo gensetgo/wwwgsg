@@ -476,7 +476,7 @@ p {
 	padding-top: 0px;
 	background: url("images/bg-tabs.gif") repeat-x scroll center center
 		transparent;
-	background: linear-gradient(to bottom, white, gray);
+	background: linear-gradient(to bottom, white, lightgray);
 	font-family: Lato, sans-serif;
 	color: black;
 	font-size: 14px;

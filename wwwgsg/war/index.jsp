@@ -17,6 +17,16 @@
 <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif] -->
 <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/52e67a271d6760632b0009d7/52eec3eddb9a854a4e0006db_vsa_fav.jpg"/>
 <script></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49901239-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script></head>
 <body style="">
 	

@@ -1,4 +1,4 @@
-<!-- Indices written at Sun, 13 Jul 2014 02:31:30 IST -->
+<!-- Indices written at Wed, 16 Jul 2014 01:08:24 IST -->
 
 <datastore-indexes>
 
@@ -11,6 +11,7 @@
 
     <!-- Used 1 time in query history -->
     <datastore-index kind="Product_Item" ancestor="false" source="auto">
+        <property name="__text__fuel_type" direction="asc"/>
         <property name="product_category" direction="asc"/>
         <property name="__number__price" direction="desc"/>
     </datastore-index>

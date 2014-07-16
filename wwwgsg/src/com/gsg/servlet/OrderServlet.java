@@ -74,7 +74,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.SetMultimap;
 //import com.gsg.accounting.TaxCalculator;
 import com.gsg.helper.Util;
-
+import com.payzippy.sdk.*;
 /**
  * This servlet responds to the request corresponding to orders. The Class
  * places the order.
@@ -200,11 +200,43 @@ public class OrderServlet extends BaseServlet {
 			}
 			message = "Order created successfully";
 			req.setAttribute("order", order);
+			if(pay_method.equalsIgnoreCase("credit card")){
+				
+				//set all the parameters in the charging builder object
+				ChargingRequestBuilder chargingBuilder=ChargingRequest.getBuilder();
+				chargingBuilder.setBuyerEmailId(email);
+				chargingBuilder.setMerchantTransactionId((""+order.getKey()).replace("Order(", "").replace(")", ""));
+				chargingBuilder.setMerchantKeyId("payment");
+				chargingBuilder.setMerchantId("test_t1516");
+				
+				chargingBuilder.setTransactionAmount("43000");
+				chargingBuilder.setPaymentMethod("NET");
+				chargingBuilder.setCurrency("INR");
+				chargingBuilder.setUiMode("REDIRECT").setHashMethod("sha256");
+				chargingBuilder.setTransactionType("SALE");
+				chargingBuilder.setBankName("ICICI");
+				
+				//similarly set all the mandatory parameters as shown above
 
+				//and to set any optional parameter in the charging builder object
+				chargingBuilder.putParams("buyer_phone_no", phone);
+				chargingBuilder.putParams("shipping_address", address);
+				chargingBuilder.putParams("callback_url", "http://localhost:8888/orderConfirmation.jsp?id="+order.getKey());
+
+				//call build method which returns ChargingRequest object by passing the secret key
+				ChargingRequest chargingRequest = chargingBuilder.build("58e5e534bbf36a5f4a4870a50ca1bbbd4133ca74555a6e7a5b307c504a295bcf");
+
+				String url = chargingRequest.getUrl("https://www.payzippy.com/payment/api/charging/v1");
+
+				//if ui_mode is REDIRECT, then
+				resp.sendRedirect(url);
+				
+			}else{
 			RequestDispatcher dispatcher = req
 					.getRequestDispatcher("orderConfirmation.jsp");
 			sendEmail("" + order.getKey().getId(), email, cust_name);
 			dispatcher.forward(req, resp);
+			}
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, e.getMessage(), e);
 			message = "Order creation failed. Reason: ";

@@ -15,9 +15,11 @@
 	//	String orderId = request.getParameter("id");
 	//	Entity order = Util.findEntity(KeyFactory.createKey("Order",
 	//			Long.parseLong(orderId)));
-	Entity order = (Entity) request.getAttribute("order");
-	String orderId = order.getKey().getId() + "";
-
+	//Entity order = (Entity) request.getAttribute("order");
+	//String orderId = order.getKey().getId() + "";
+	String orderId = request.getParameter("id").replace("Order(", "").replace(")", "");
+		Entity order = Util.findEntity(KeyFactory.createKey("Order",
+				Long.parseLong(orderId)));
 	Iterator iterator = Util.listChildren("Item",
 			KeyFactory.createKey("Order", Long.parseLong(orderId)))
 			.iterator();
@@ -56,19 +58,14 @@
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
 <link rel="apple-touch-icon" href="/images/vsa_fav.jpg">
 <script>
-	(function(i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r;
-		i[r] = i[r] || function() {
-			(i[r].q = i[r].q || []).push(arguments)
-		}, i[r].l = 1 * new Date();
-		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefore(a, m)
-	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
-			'ga');
-	ga('create', 'UA-49901239-1', 'gensetgo.com');
-	ga('send', 'pageview');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49901239-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
 <script language="javascript" src='/script/jquery-1.9.1.js'></script>
 <script language="javascript" src='/script/jquery-ui-1.10.2.custom.js'></script>

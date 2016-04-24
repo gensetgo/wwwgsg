@@ -161,6 +161,7 @@
 									}
 									}
 								%>
+								<div class="w-list-unstyled">Shipment Duration: 3-15 days </div>
 
 							</div>
 							<div class="w-col w-col-4 details-p1box-features">

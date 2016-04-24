@@ -359,9 +359,9 @@
 										class="w-col w-col-2 order-form">
 										<option value="Draft On Delivery">Draft On Delivery</option>
 										<option value="NEFT">NEFT</option>
-								<!-- <option value="Account Deposit">Account Deposit</option>
+								 <option value="Account Deposit">Account Deposit</option>
 										<option value="Credit Card">Credit Card</option>
- 									-->		
+ 										
 									</Select>
 									<div class="w-col w-col-8">
 										<label for="pay_method"></label>

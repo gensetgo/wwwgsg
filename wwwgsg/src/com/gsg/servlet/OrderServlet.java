@@ -31,6 +31,7 @@ package com.gsg.servlet;
  */
 
 import java.io.ByteArrayOutputStream;
+import java.security.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
@@ -74,7 +75,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.SetMultimap;
 //import com.gsg.accounting.TaxCalculator;
 import com.gsg.helper.Util;
-import com.payzippy.sdk.*;
+//import com.payzippy.sdk.*;
 /**
  * This servlet responds to the request corresponding to orders. The Class
  * places the order.
@@ -145,7 +146,7 @@ public class OrderServlet extends BaseServlet {
 			String item_sub_tot = req.getParameter("item_sub_tot");
 			String item_vat = req.getParameter("item_vat");
 			String item_grand_tot = req.getParameter("item_grand_tot");
-
+			String summary="";
 			Entity order = new Entity("Order");
 			order.setProperty("orderDate", dte);
 			order.setProperty("email", email);
@@ -196,14 +197,18 @@ public class OrderServlet extends BaseServlet {
 						req.getParameter("item_des" + appnd));
 				lineItem.setProperty("item_id",
 						req.getParameter("item_id" + appnd));
+				summary=summary+" "+req.getParameter("item_des" + appnd);
 				Util.persistEntity(lineItem);
+				
 			}
 			message = "Order created successfully";
-			req.setAttribute("order", order);
+			order.setProperty("productinfo", summary);
+
+			
 			if(pay_method.equalsIgnoreCase("credit card")){
 				
 				//set all the parameters in the charging builder object
-				ChargingRequestBuilder chargingBuilder=ChargingRequest.getBuilder();
+/*				ChargingRequestBuilder chargingBuilder=ChargingRequest.getBuilder();
 				chargingBuilder.setBuyerEmailId(email);
 				chargingBuilder.setMerchantTransactionId((""+order.getKey()).replace("Order(", "").replace(")", ""));
 				chargingBuilder.setMerchantKeyId("payment");
@@ -229,9 +234,22 @@ public class OrderServlet extends BaseServlet {
 				String url = chargingRequest.getUrl("https://www.payzippy.com/payment/api/charging/v1");
 
 				//if ui_mode is REDIRECT, then
+				resp.sendRedirect(url);*/
+				String merchant_key="0dy9po";
+				String url=	"https://test.payu.in/_payment";
+				String surl="http://www.gensetgo.com/orderConfirmation.jsp?id="+order.getKey().getId();
+				String furl="http://www.gensetgo.com/orderConfirmation.jsp?id="+order.getKey().getId();
+				String service_provider="payu_paisa";
+				String hash=getHashString(order);
+
+				url=url+"?key="+merchant_key+"&txnid="+order.getKey().getId()+"&service_provider="+service_provider+"&amount="+order.getProperty("item_grand_tot")+"&productinfo="+order.getProperty("productinfo")+"&firstname="+order.getProperty("cust_name")+"&email="+order.getProperty("email")+"&phone="+order.getProperty("phone")+"&surl="+surl+"&furl="+furl+"&hash="+hash;
+				System.out.println(url);
 				resp.sendRedirect(url);
-				
+			/*	RequestDispatcher dispatcher = req
+						.getRequestDispatcher(url);
+				dispatcher.forward(req, resp);*/
 			}else{
+				req.setAttribute("productinfo",summary);
 			RequestDispatcher dispatcher = req
 					.getRequestDispatcher("orderConfirmation.jsp");
 			sendEmail("" + order.getKey().getId(), email, cust_name);
@@ -485,6 +503,54 @@ public class OrderServlet extends BaseServlet {
 		}
 
 	}
+	
+	public String hashCal(String type,String str){
+		byte[] hashseq=str.getBytes();
+		StringBuffer hexString = new StringBuffer();
+		try{
+		MessageDigest algorithm = MessageDigest.getInstance(type);
+		algorithm.reset();
+		algorithm.update(hashseq);
+		byte messageDigest[] = algorithm.digest();
+            
+		
+
+		for (int i=0;i<messageDigest.length;i++) {
+			String hex=Integer.toHexString(0xFF & messageDigest[i]);
+			if(hex.length()==1) hexString.append("0");
+			hexString.append(hex);
+		}
+			
+		}catch(NoSuchAlgorithmException nsae){ }
+		
+		return hexString.toString();
+
+
+	}
+	
+	public String getHashString(Entity order){
+		String merchant_key="0dy9po";
+		String salt="G0sUvbRo";
+		String hashSequence = "item_grand_tot|productinfo|cust_name|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
+		String[] hashVarSeq=hashSequence.split("\\|");
+		String hashString= merchant_key+"|"+order.getKey().getId()+"|";
+		
+		for(String part : hashVarSeq)
+		{
+			hashString= order.getProperty(part)+"";
+			hashString=hashString.concat("|");
+		}
+		hashString=hashString.concat(salt);
+		
+				System.out.println(hashString); 
+
+		 String hash=hashCal("SHA-512",hashString);
+		 		System.out.println(hash);
+
+		
+		return hash;
+	}
+
 
 	/**
 	 * Get the requested orders and the line items in JSON format

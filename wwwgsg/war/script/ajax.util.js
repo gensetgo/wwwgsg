@@ -61,6 +61,7 @@ var init = function(entity) {
 			.change(
 					function() {
 						var tipe = $(this).val();
+						alert(tipe);
 						if (tipe == 'Draft On Delivery') {
 							$('#scan,#label_scan,#pay_method_msg').show();
 							$('#utr,#label_utr,#pay_method_msgu').hide();
@@ -83,16 +84,37 @@ var init = function(entity) {
 							$('#utr,#label_utr,#pay_method_msgu').show();
 							$('#scan,#label_scan,#pay_method_msg').hide();
 						}
+						if (tipe == 'Credit Card') {
+							$('#pay_method_msgu')
+									.html(
+											'NOT AVAILABLE NOW. Only for testing purpose. Transactions through this option will be discarded.');
+							$('#utr,#label_utr,#pay_method_msgu').show();
+							$('#scan,#label_scan,#pay_method_msg').hide();
+						}
+						if (tipe == 'Debit Card') {
+							$('#pay_method_msgu')
+									.html(
+											'NOT AVAILABLE NOW. Only for testing purpose. Transactions through this option will be discarded.');
+							$('#utr,#label_utr,#pay_method_msgu').show();
+							$('#scan,#label_scan,#pay_method_msg').hide();
+						}
+						if (tipe == 'NET  Banking') {
+							$('#pay_method_msgu')
+									.html(
+											'NOT AVAILABLE NOW. Only for testing purpose. Transactions through this option will be discarded.');
+							$('#utr,#label_utr,#pay_method_msgu').show();
+							$('#scan,#label_scan,#pay_method_msg').hide();
+						}
 
 					});
 
 	jQuery.validator.setDefaults({
-		  debug: true,
-		  success: "valid"
-		});
-	
+		debug : true,
+		success : "valid"
+	});
+
 	$('#order-form').validate({
-		onkeyup: true,
+		onkeyup : true,
 		rules : {
 			email : {
 				required : true,
@@ -806,6 +828,16 @@ var addNewRow = function(tableName, entity, auto_element, auto_entity) {
 }
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function fkToggleDisplay(b) {
+	var a = document.getElementById(b).style;
+	if (a.display == "block") {
+		document.getElementById(b).style.display = "none"
+	} else {
+		document.getElementById(b).style.display = "block"
+	}
+	return false
+}
 var addChangeListener = function(counter) {
 
 	$('#quantity' + counter).change(
@@ -3327,7 +3359,7 @@ var dupWithIdM = (function(data, table, displayItem) {
 																						+ '</option>';
 																			}
 																			counter++;
-																		});
+																		}); 
 														var htm = '<select id="'
 																+ name
 																+ '"'
@@ -3408,6 +3440,25 @@ var dupWithIdM = (function(data, table, displayItem) {
 														// htm);
 
 													} else if (!(typeof eval('data.'
+															+ '__multitext__' + name) === "undefined")) {
+														vl = eval('data.'
+																+ '__multitext__'
+																+ name)
+																+ '';
+														var htm = '<textarea class="gsc-input-autocomplete" id="'
+																+ name
+																+ '"'
+																+ ' name="'
+																+ name
+																+ i
+																+ '"'
+																+ ' value="'
+																+ vl
+																+ '">'+vl+'</textarea>';
+														// alert('html --> ' +
+														// htm);
+
+													}else if (!(typeof eval('data.'
 															+ '__number__'
 															+ name) === "undefined")) {
 														vl = eval('data.'
@@ -3653,6 +3704,21 @@ var addNeededChangeListener = function(element) {
 														+ ' name="products_attribute_value'
 														+ rowId
 														+ '" value=""></input>');
+
+								// $('#products_attribute_file_value' +
+								// rowId).hide();
+
+							}else if (($.trim(par) == "MultiText")) {
+								// alert($('#products_attribute_value' +
+								// rowId).find('div').html());
+								$(
+										'div[name="products_attribute_value'
+												+ rowId + '"]')
+										.html(
+												'<textarea id="products_attribute_value"'
+														+ ' name="products_attribute_value'
+														+ rowId
+														+ '"  rows="4" cols="50" ></textarea>');
 
 								// $('#products_attribute_file_value' +
 								// rowId).hide();

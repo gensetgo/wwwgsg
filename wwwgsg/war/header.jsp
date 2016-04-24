@@ -28,9 +28,9 @@
 				href="listing.jsp?command=productlist&category=MidSize">Mid Size
 				|</a><a class="nav-link"
 				href="listing.jsp?command=productlist&category=Industrial"
-				target="_self">Industrial |</a> <a class="nav-link"
+				target="_self">Industrial |</a> <!--<a class="nav-link"
 				href="listing.jsp?command=productlist&category=Portable"
-				target="_self">Rental</a>
+				target="_self"></a> -->
 		</div>
 	</div>
 </div>

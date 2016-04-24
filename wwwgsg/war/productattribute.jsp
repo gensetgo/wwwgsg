@@ -120,7 +120,7 @@
 													id="products_category_new" /></td>
 											<td>Item</td>
 											<td><span class="readonly"><select
-													name="products_item" id="products_item">
+													name="products_item" id="products_item"><option>New</option>
 												</select></span> <span class="readonly"><span class="textarea"><input
 														type="text" id="products_item_new"
 														name="products_item_new" /> </span></td>
